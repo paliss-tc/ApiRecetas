@@ -32,6 +32,7 @@ class CardSwiper extends StatelessWidget {
         itemHeight: size.height * 0.5,
         itemBuilder: (context, index) {
           final coffee = coffeeDrinks[index];
+
           return GestureDetector(
             onTap: () async {
               final CoffeeProvider coffeeProvider = CoffeeProvider();
@@ -40,13 +41,16 @@ class CardSwiper extends StatelessWidget {
               CoffeeResult? coffeeDrink = coffeeProvider.onDisplayCoffee;
               Navigator.pushNamed(context, 'recipes', arguments: coffeeDrink);
             },
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: FadeInImage(
-                placeholder: const AssetImage('assets/no-image.jpg'),
-                // ignore: unnecessary_string_interpolations
-                image: AssetImage("${coffee.imgUrl}"),
-                fit: BoxFit.cover,
+            child: Hero(
+              tag: coffee.name,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: FadeInImage(
+                  placeholder: const AssetImage('assets/no-image.jpg'),
+                  // ignore: unnecessary_string_interpolations
+                  image: AssetImage("${coffee.imgUrl}"),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           );

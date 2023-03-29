@@ -53,11 +53,12 @@ class CoffeDrinkApi {
     if (currentCoffeeDrinks == null) return null;
     List<CoffeeResult> coffeeDrinks = <CoffeeResult>[];
     for (Map<String, dynamic> currentCoffee in currentCoffeeDrinks) {
-      if (!currentCoffee.containsKey('description') ||
+      if (!currentCoffee.containsKey('name') ||
+          !currentCoffee.containsKey('description') ||
           !currentCoffee.containsKey('hasAlcohol') ||
           !currentCoffee.containsKey('cupSize') ||
           !currentCoffee.containsKey('recipe')) return null;
-
+      String coffeeName = currentCoffee['name'];
       String coffeeDescription = currentCoffee['description'];
       bool coffeeHasAlcohol = currentCoffee['hasAlcohol'];
       String coffeeCupSize = currentCoffee['cupSize'];

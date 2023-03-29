@@ -123,12 +123,15 @@ class _PictureAndName extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: FadeInImage(
-              placeholder: const AssetImage('assets/no-image.jpg'),
-              image: AssetImage(coffee.imgUrl),
-              height: 150,
+          Hero(
+            tag: coffee.name,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: FadeInImage(
+                placeholder: const AssetImage('assets/no-image.jpg'),
+                image: AssetImage(coffee.imgUrl),
+                height: 150,
+              ),
             ),
           ),
           const SizedBox(

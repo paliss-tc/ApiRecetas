@@ -19,7 +19,7 @@ class CoffeeSlider extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-              'Receipes:',
+              'Descriptions:',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
